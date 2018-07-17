@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
 
+    // Global variables
     var gemOne;
     var gemTwo;
     var gemThree;
@@ -12,7 +13,7 @@ $(document).ready(function () {
     var computerNumber;
     var userScore = 0;
 
-
+    // This function will randomize the computer choice number and all of the value for each gem
     function gameStart() {
         computerNumber = Math.floor(Math.random() * (120 - 19 + 1) + 19);
         console.log("Computer number is: " + computerNumber);
@@ -31,8 +32,10 @@ $(document).ready(function () {
 
     }
 
+    // Calling the gameStart function
     gameStart();
 
+    // Click event for everytime the images with the gem-buttons class is clicked
     $(".gem-buttons").click(function () {
         var userChoice = $(this).attr("value");
         console.log("User clicked gem #" + userChoice);
@@ -46,21 +49,25 @@ $(document).ready(function () {
         } else if (userChoice == "4") {
             userScore += gemFour;
         }
-        console.log(userScore);
+        console.log("User's score is: " + userScore);
 
         if (userScore > computerNumber) {
             losses++;
             console.log("Losses: " + losses);
+            console.log("------------------");
+            alert("Didn't win this time. Click a crystal to try again!");
             userScore = 0;
             gameStart();
         } else if (userScore === computerNumber) {
             wins++
             console.log("Wins: " + wins);
+            console.log("------------------");
             alert("Really lucky or really good... Doesn't matter. You won!");
             userScore = 0;
             gameStart();
         }
 
+        // Manipulating the DOM to update the scores
         $("#total-score-counter").html("<p>" + userScore + "</p>")
         $("#score-count").html("<p>" + computerNumber + "</p>")
         $("#wins-losses").html("<p>Wins: " + wins + "</p>"
