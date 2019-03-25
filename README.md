@@ -1,7 +1,6 @@
-# unit-4-game
-## Homework assignment 4 for the Coding Bootcamp at UCI
+# Crystal Collector
 
-## This project was our first attempt at working with JQuery on our own projects
+## Goal is to demonstrate how to use JQuery for DOM manipulation
 
 ## Rules
 ### The goal of the game is to reach the same number as the computer, which randomly chooses a number before each round
